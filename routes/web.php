@@ -12,13 +12,17 @@ Route::get('/', function () {
 
 Route::get('prueba',function(){
 
-    $post = Post::find(1);
+    $user = User::find(1);
 
-    //$post->tags()->attach([1,2]);
-    
-    $post->tags()->sync(ids: [1,2,3]);
+    // Phone::create([
+    //     'number' => '6131003451',
+    //     'phoneable_id' => $user->id,
+    //     'phoneable_type' => User::class,
+    // ]);
 
-    //$post->tags()->detach([2]);
-    
-    return $post->tags;
+    // $user->phone()->create([
+    //     'number' => '613100451'
+    // ]);
+
+    return $user->phone;
 });

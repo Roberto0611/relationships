@@ -1,4 +1,4 @@
-<?php
+c<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,11 +13,18 @@ return new class extends Migration
     {
         Schema::create('phones', function (Blueprint $table) {
             $table->id();
+
             $table->string('number');
-            $table->foreignId('user_id')
-            ->constrained()
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+           
+            # ONE TO ONE 
+            // $table->foreignId('user_id')
+            // ->constrained()
+            // ->onDelete('cascade')
+            // ->onUpdate('cascade');
+
+            # ONE TO ONE morphs
+            $table->morphs('phoneable');
+
             $table->timestamps();
         });
     }

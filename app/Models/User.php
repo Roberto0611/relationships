@@ -47,6 +47,7 @@ class User extends Authenticatable
     }
 
     public function phone(){
-        return $this->hasOne(Phone::class);
+        //return $this->hasOne(Phone::class);
+        return $this->morphOne(Phone::class,'phoneable');
     }
 }

@@ -9,10 +9,14 @@ class Phone extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['number','user_id'];
+    protected $fillable = ['number','phoneable_id','phoneable_type'];
 
     // Relacion inversa
-    public function user(){
-        return $this->belongsTo(User::class);
+    // public function user(){
+    //     return $this->belongsTo(User::class);
+    // }
+
+    public function phoneable(){
+        return $this->morphTo();
     }
 }
