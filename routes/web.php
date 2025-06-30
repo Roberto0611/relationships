@@ -12,10 +12,13 @@ Route::get('/', function () {
 
 Route::get('prueba',function(){
 
-    $post = Post::find(2);
+    $post = Post::find(1);
+
+    //$post->tags()->attach([1,2]);
     
-    $post->comments()->create([
-        'content' => 'un comentario de prueba :)'
-    ]);
+    $post->tags()->sync(ids: [1,2,3]);
+
+    //$post->tags()->detach([2]);
     
+    return $post->tags;
 });
