@@ -16,9 +16,11 @@ return new class extends Migration
 
             $table->string('content');
 
-            $table->foreignId('post_id')
-            ->constrained()
-            ->onDelete('cascade');
+            // $table->foreignId('post_id')
+            // ->constrained()
+            // ->onDelete('cascade');
+
+            $table->morphs('commentable');
 
             $table->timestamps();
         });

@@ -16,7 +16,8 @@ class Post extends Model
 
     // Relacion uno a muchos
     public function comments(){
-        return $this->hasMany(Comment::class);
+        //return $this->hasMany(Comment::class);
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
     // Relacion muchos a muchos
