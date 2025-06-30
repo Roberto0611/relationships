@@ -11,11 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('prueba',function(){
-
     $post = Post::find(1);
-    
-    $post->comments()->create([
-        'content' => 'Comentario desde la ruta'
-    ]);
 
+    $post->tags()->attach([1,2,3]); // Agregar un tag al post
 });
